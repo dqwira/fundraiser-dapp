@@ -138,13 +138,13 @@ const FundraisersDetails = () => {
 			const description = await fundContract.methods.description().call()
 			const imageURL = await fundContract.methods.imageURL().call()
 			const url = await fundContract.methods.url().call()
-			const xRate = await CryptoCompare.price('ETH', ['USD'])
+			const xRate = await CryptoCompare.price('ETH', ['IDR'])
 			const donationAmount = await fundContract.methods.totalDonations().call()
 			const donationsCount = await fundContract.methods.donationsCount().call()
 			const donationAmountETH = await web3.utils.fromWei(donationAmount, 'ether')
-			const donationAmountUSD = xRate.USD * donationAmountETH
+			const donationAmountIDR = xRate.IDR * donationAmountETH
 			setExchangeRate(xRate)
-			setDonationAmount(donationAmountUSD)
+			setDonationAmount(donationAmountIDR)
 			setDonationAmountEth(donationAmountETH)
 			setDonationCount(donationsCount)
 			setDetails({
@@ -208,14 +208,14 @@ const FundraisersDetails = () => {
 
 	const handleDonationChange = e => {
 		const value = e.target.value
-		const ethValue = value / exchangeRate.USD || 0
+		const ethValue = value / exchangeRate.IDR || 0
 		setDonateAmount(value)
 		setDonateAmountEth(ethValue)
 	}
 
 	const handleDonate = async () => {
 		try {
-			const ethAmount = donateAmount / exchangeRate.USD || 0
+			const ethAmount = donateAmount / exchangeRate.IDR || 0
 			const donation = web3.utils.toWei(ethAmount.toString())
 			await fund.methods.donate().send({
 				from: userAcct,
@@ -285,10 +285,10 @@ const FundraisersDetails = () => {
 		let donationsList = []
 		for (let i = 0; i < totalDonations; i++) {
 			const ethAmount = web3.utils.fromWei(userDonations.values[i])
-			const userDonation = exchangeRate.USD * ethAmount
+			const userDonation = exchangeRate.IDR * ethAmount
 			const donationDate = userDonations.dates[i]
 			donationsList.push({
-				donationAmountUSD: formatNumber(userDonation),
+				donationAmountIDR: formatNumber(userDonation),
 				donationAmountETH: ethAmount,
 				date: donationDate,
 			})
@@ -307,22 +307,9 @@ const FundraisersDetails = () => {
 			<Fragment key={donation.date}>
 				<Box sx={styles.donationRow}>
 					<Box>
-						<Typography>${donation.donationAmountUSD}</Typography>
+						<Typography>Rp. {donation.donationAmountIDR}</Typography>
 						<Typography sx={styles.ethAmount}>({donationAmountEth} ETH)</Typography>
 					</Box>
-					<Link
-						className="donation-receipt-link"
-						to="/receipts"
-						state={{
-							donation: donation.donationAmount,
-							date: donation.date,
-							fundName: details.name,
-						}}
-					>
-						<Button variant="outlined" color="primary" size="small">
-							Request Receipt
-						</Button>
-					</Link>
 				</Box>
 				<Divider light />
 			</Fragment>
@@ -360,7 +347,7 @@ const FundraisersDetails = () => {
 						{details.name}
 					</Typography>
 					<Typography variant="h5" color="textSecondary" component="p">
-						Amount Raised: ${formatNumber(donationAmount)}
+						Amount Raised: Rp. {formatNumber(donationAmount)}
 					</Typography>
 					<Typography sx={styles.ethAmount}>({donationAmountEth} ETH)</Typography>
 					<Typography variant="h6" color="textSecondary" component="p">
@@ -395,7 +382,7 @@ const FundraisersDetails = () => {
 									value={donateAmount}
 									placeholder="0.00"
 									onChange={e => handleDonationChange(e)}
-									startAdornment={<InputAdornment position="start">$</InputAdornment>}
+									startAdornment={<InputAdornment position="start">Rp. </InputAdornment>}
 									fullWidth
 								/>
 							</FormControl>
