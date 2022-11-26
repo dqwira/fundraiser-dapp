@@ -15,9 +15,9 @@ const AppFooter = () => (
 	<footer>
 		<Container maxWidth="false" sx={styles.footer}>
 			<Typography variant="caption">
-				&copy; 2021 | Developed by&nbsp;
-				<Link href="https://dco.dev/" underline="hover" color="#fff" target="_blank">
-					Drew Cook
+				&copy; 2022 | Project Blockchain&nbsp;
+				<Link href="https://github.com/Raguna9/aplikasi-donasi-blockchain/tree/projectakhir" underline="hover" color="#fff" target="_blank">
+					Tim 1
 				</Link>
 			</Typography>
 		</Container>

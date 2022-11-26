@@ -34,7 +34,7 @@ const NewFundraiser = () => {
 				.send({ from: accounts[0] })
 
 			setSuccessOpen(true)
-			setSuccessMsg('Successfully created fundraiser')
+			setSuccessMsg('Penggalangan dana berhasil dibuat')
 			resetForm()
 		} catch (err) {
 			console.error(err)
@@ -53,19 +53,16 @@ const NewFundraiser = () => {
 		<>
 			<Box sx={styles.centered}>
 				<Typography gutterBottom variant="h2">
-					Create a New Fundraiser
+					Buat penggalangan dana baru
 				</Typography>
 				<Typography gutterBottom>
-					As the creator and owner of this fundraiser, you will act as the custodian for the
-					beneficiary. You have the authority to withdraw the donation funds at any point to be
-					deposited directly into the beneficiary's address. You also have the authority to set the
-					beneficiary address.
+					Sebagai pembuat penggalangan dana, anda dapat mengelola dana dan detail penggalangan dana serta memilih alamat ETH penerima dana termasuk melakukan penarikan dana ke alamat ETH yang dipilih. 
 				</Typography>
 			</Box>
 			<form>
 				<TextField
 					id="fundraiser-name-input"
-					label="Name"
+					label="Nama Penggalangan Dana"
 					variant="filled"
 					margin="normal"
 					value={name}
@@ -75,7 +72,7 @@ const NewFundraiser = () => {
 				/>
 				<TextField
 					id="fundraiser-description-input"
-					label="Description"
+					label="Deskripsi"
 					variant="filled"
 					margin="normal"
 					value={description}
@@ -85,7 +82,7 @@ const NewFundraiser = () => {
 				/>
 				<TextField
 					id="fundraiser-website-input"
-					label="Website URL"
+					label="Situs URL"
 					variant="filled"
 					margin="normal"
 					value={website}
@@ -95,7 +92,7 @@ const NewFundraiser = () => {
 				/>
 				<TextField
 					id="fundraiser-image-input"
-					label="Image URL"
+					label="Gambar URL"
 					variant="filled"
 					margin="normal"
 					value={image}
@@ -105,7 +102,7 @@ const NewFundraiser = () => {
 				/>
 				<TextField
 					id="fundraiser-address-input"
-					label="Beneficiary ETH Address"
+					label="Alamat ETH Penerima dana"
 					variant="filled"
 					margin="normal"
 					value={address}
@@ -121,12 +118,11 @@ const NewFundraiser = () => {
 					fullWidth
 					sx={styles.submitBtn}
 				>
-					Create Fundraiser
+					Buat Penggalangan Dana
 				</Button>
 			</form>
 			<Typography gutterBottom sx={styles.formCaption} variant="body2">
-				All fields are required. The beneficiary address must be a valid ETH address for the funds
-				to be deposited into.
+				Semua form harus terisi, pastikan alamat ETH penerima dana valid.
 			</Typography>
 			{successOpen && <Notification open={successOpen} msg={successMsg} type="success" />}
 		</>

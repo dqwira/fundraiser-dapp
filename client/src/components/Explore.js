@@ -80,7 +80,7 @@ const Explore = () => {
 
 		return (
 			<Grid item xs={12} sx={styles.centered}>
-				<Typography variant="overline">No fundraisers created yet.</Typography>
+				<Typography variant="overline">Belum ada penggalangan dana.</Typography>
 			</Grid>
 		)
 	}
@@ -89,11 +89,10 @@ const Explore = () => {
 		<>
 			<Box sx={styles.centered}>
 				<Typography gutterBottom variant="h2">
-					Explore Fundraisers
+					Daftar Penggalangan Dana
 					{totalCount && (
 						<Typography gutterBottom>
-							There are currently <strong>{totalCount}</strong> total fundraisers that you may
-							donate to.
+							Terdapat <strong>{totalCount}</strong> total penggalangan dana yang tersedia.
 						</Typography>
 					)}
 				</Typography>

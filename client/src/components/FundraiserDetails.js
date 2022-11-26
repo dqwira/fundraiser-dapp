@@ -170,7 +170,7 @@ const FundraisersDetails = () => {
 
 			setLoading(false)
 		} catch (err) {
-			setError('Failed to get fundraiser details.')
+			setError('Gagal memuat detail penggalangan dana.')
 			console.error(err)
 			setLoading(false)
 		}
@@ -222,9 +222,9 @@ const FundraisersDetails = () => {
 				value: donation,
 				gas: 650000,
 			})
-			onSuccess('Donation accepted')
+			onSuccess('Donasi diterima')
 		} catch (err) {
-			onFailure('Failed to make donation')
+			onFailure('Gagal melakukan donasi')
 			console.error(err)
 		}
 	}
@@ -234,9 +234,9 @@ const FundraisersDetails = () => {
 			await fund.methods.setBeneficiary(beneficiary).send({
 				from: userAcct,
 			})
-			onSuccess('Fundraiser beneficiary has been changed')
+			onSuccess('Penerima dana berhasil diubah')
 		} catch (err) {
-			onFailure('Failed to set beneficiary')
+			onFailure('Penerima dana gagal diubah')
 			console.error(err)
 		}
 	}
@@ -246,9 +246,9 @@ const FundraisersDetails = () => {
 			await fund.methods.withdraw().send({
 				from: userAcct,
 			})
-			onSuccess('Available funds withdrawn and deposited to beneficiary')
+			onSuccess('Berhasil melakukan penarikan dana')
 		} catch (err) {
-			onFailure('Failed to make withdrawal')
+			onFailure('Gagal melakukan penarikan dana')
 			console.error(err)
 		}
 	}
@@ -260,9 +260,9 @@ const FundraisersDetails = () => {
 				from: userAcct,
 				gas: 650000,
 			})
-			onSuccess('Fundraiser details updated')
+			onSuccess('Update detail penggalangan dana berhasi')
 		} catch (err) {
-			onFailure('Failed to edit details')
+			onFailure('Gagal melakukan edit detail penggalangan dana')
 			console.error(err)
 		}
 	}
@@ -298,7 +298,7 @@ const FundraisersDetails = () => {
 			return (
 				<Box>
 					<Typography gutterBottom variant="body2">
-						You haven't made any donations to this fundraiser yet.
+						Anda belum melakukan donasi.
 					</Typography>
 				</Box>
 			)
@@ -339,7 +339,7 @@ const FundraisersDetails = () => {
 			<>
 				<Link className="back-button" to="/explore">
 					<Button variant="contained" color="primary">
-						Back to list
+						Kembali ke daftar
 					</Button>
 				</Link>
 				<Box sx={styles.verticalSpacing}>
@@ -347,11 +347,11 @@ const FundraisersDetails = () => {
 						{details.name}
 					</Typography>
 					<Typography variant="h5" color="textSecondary" component="p">
-						Amount Raised: Rp. {formatNumber(donationAmount)}
+						Terkumpul : Rp. {formatNumber(donationAmount)}
 					</Typography>
 					<Typography sx={styles.ethAmount}>({donationAmountEth} ETH)</Typography>
 					<Typography variant="h6" color="textSecondary" component="p">
-						Total Donations: {donationCount}
+						Total Donasi : {donationCount}
 					</Typography>
 				</Box>
 				<Grid container spacing={3}>
@@ -366,17 +366,17 @@ const FundraisersDetails = () => {
 						<Typography sx={styles.verticalSpacing}>
 							<Anchor href={details.url} underline="none" color="inherit">
 								<Button color="primary" endIcon={<Launch />}>
-									View Website
+									Kunjungi Situs
 								</Button>
 							</Anchor>
 						</Typography>
 						<Divider />
 						<Box sx={styles.verticalSpacing}>
 							<Typography gutterBottom variant="h6">
-								Make a Donation
+								Buat Donasi
 							</Typography>
 							<FormControl variant="filled" fullWidth margin="normal">
-								<InputLabel htmlFor="donation-amount-input">Donation Amount</InputLabel>
+								<InputLabel htmlFor="donation-amount-input">Jumlah Donasi</InputLabel>
 								<FilledInput
 									id="donation-amount-input"
 									value={donateAmount}
@@ -393,30 +393,29 @@ const FundraisersDetails = () => {
 								color="primary"
 								sx={{ marginY: 1 }}
 							>
-								Donate
+								Donasikan
 							</Button>
 						</Box>
 					</Grid>
 					<Grid item xs={12} md={5}>
 						<Box sx={styles.verticalSpacing}>
 							<Typography gutterBottom variant="h6">
-								My Donations
+							 Histori Donasi
 							</Typography>
 							{displayMyDonations()}
 						</Box>
 						{isOwner && (
 							<>
 								<Typography gutterBottom variant="h5">
-									Owner Actions
+									Sesi Admin
 								</Typography>
 								<Typography gutterBottom>
-									As the owner of this fundraiser, you have a couple actions available to perform.
+									Sebagai Admin atau Pembuat penggalangan dana, terdapat beberapa aksi yang tersedia
 								</Typography>
 								<Box sx={styles.verticalSpacing}>
 									<Typography variant="h6">Update Details</Typography>
 									<Typography gutterBottom>
-										Edit the details of your fundraiser, including the name, description, website
-										URL, and image URL.
+										Edit detail penggalangan dana (nama, deskripsi, situs, dan gambar)
 									</Typography>
 									{!isEditingDetails ? (
 										<Button
@@ -492,13 +491,12 @@ const FundraisersDetails = () => {
 									)}
 								</Box>
 								<Box sx={styles.verticalSpacing}>
-									<Typography variant="h6">Set Beneficiary</Typography>
+									<Typography variant="h6">Penerima dana</Typography>
 									<Typography>
-										Set a new beneficiary wallet address for this fundraiser. The beneficiary wallet
-										will receive all of the funds when withdrawn.
+										Ubah penerima dana, penerima dana akan terdaftar sebagai alamat tujuan penarikan dana.
 									</Typography>
 									<FormControl variant="filled" fullWidth margin="normal">
-										<InputLabel htmlFor="set-beneficiary-input">Beneficiary ETH Address</InputLabel>
+										<InputLabel htmlFor="set-beneficiary-input">ETH Address penerima dana</InputLabel>
 										<FilledInput
 											id="set-beneficiary-input"
 											value={beneficiary}
@@ -513,16 +511,15 @@ const FundraisersDetails = () => {
 										onClick={handleSetBeneficiary}
 										sx={styles.ownerActionBtn}
 									>
-										Set Beneficiary
+										Set Penerima Dana
 									</Button>
 								</Box>
 								<Box sx={styles.verticalSpacing}>
 									<Typography gutterBottom variant="h6">
-										Withdraw Funds
+										Penarikan Dana
 									</Typography>
 									<Typography gutterBottom>
-										You may withdraw all of the funds currently tied to this fundraiser. The funds
-										will be directly deposited into the beneficiary's wallet.
+										Total penggalangan dana akan ditransfer ke wallet penerima dana.
 									</Typography>
 									<Button
 										variant="contained"
@@ -530,7 +527,7 @@ const FundraisersDetails = () => {
 										onClick={handleWithdrawal}
 										sx={styles.ownerActionBtn}
 									>
-										Withdrawal
+										Tarik dana
 									</Button>
 								</Box>
 							</>

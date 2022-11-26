@@ -17,37 +17,20 @@ const Home = () => (
 	<>
 		<Box sx={styles.headlines}>
 			<Typography gutterBottom variant="h2">
-				Welcome to Fundraisers DApp
+				Selamat Datang di Aplikasi Donasi Terdesentralisasi
 			</Typography>
-			<img src="/logo.png" title="Fundraisers" alt="Fundraisers" width="200" height="200" />
-			<Typography gutterBottom variant="h4" component="h3">
-				Create positive change in the world!
-			</Typography>
+			<img src="/donasi.png" title="Fundraisers" alt="Fundraisers" width="200" height="200" />
 		</Box>
 		<Container maxWidth="sm" sx={styles.content}>
 			<Typography sx={styles.p}>
-				This decentralized application is a space for creating fundraisers and making donations to
-				them, all on the Ethereum blockchain. You should already have a wallet connected to this
-				site, and therefore, you will be able to participate in both creating and donating to
-				fundraisers.
+				Aplikasi donasi terdesentralisasi ini hadir untuk membuat penggalangan dana dan melakukan donasi untuk 
+				sesama yang membutuhkan, semua berbasis pada jaringan blockchain Ethereum dan tentunya menggunakan ether (mata uang ethereum) untuk melakukan donasi.
 			</Typography>
 			<Typography sx={styles.p}>
-				As a creator of a fundraiser, you will be able to manage the funds of that fundraiser. Other
-				users can make donations in the form of Ether to your fund, and you will act as a custodian
-				for these funds. You may withdraw the funds out to be donated directly into a beneficiary
-				account.
+				Sebagai pembuat penggalangan dana, anda dapat mengelola dana dan detail penggalangan dana termasuk melakukan penarikan dana ke alamat ETH yang dipilih. User lain dapat melakukan donasi pada menu <strong>Donasi</strong> dan dapat melihat histori donasi yang disumbangkan.  
 			</Typography>
 			<Typography sx={styles.p}>
-				Check out some of the causes created by other users on the <strong>Explore</strong> page, or
-				set up a new fundraiser by clicking the <strong>Create</strong> link.
-			</Typography>
-			<Typography variant="body2">
-				<em>
-					Please ensure your wallet has authorized this domain, is connected, and is on one of the
-					supported testnets: Rinkeby, Kovan, Ropsten, or Goerli.
-					<br />
-					This application does not run on Ethereum Mainnet.
-				</em>
+				Lihat daftar penggalangan dana yang sudah dibuat di menu <strong>Donasi</strong> dan anda dapat membuat penggalangan dana baru pada menu <strong>Buat</strong>.
 			</Typography>
 		</Container>
 	</>

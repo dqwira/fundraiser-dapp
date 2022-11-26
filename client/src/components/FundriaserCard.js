@@ -79,17 +79,17 @@ const FundraiserCard = props => {
 
 	return (
 		<Card>
-			<CardMedia sx={styles.media} component="img" image={fund.imageURL} title="Fundraiser Image" />
+			<CardMedia sx={styles.media} component="img" image={fund.imageURL} title="Gambar Pengalangan dana" />
 			<CardContent>
 				<Typography gutterBottom variant="h5" component="h2">
 					{fund.name}
 				</Typography>
 				<Typography variant="h5" color="textSecondary" component="p">
-					Amount Raised: Rp. {formatNumber(fund.donationAmountIDR)}
+					Terkumpul : Rp. {formatNumber(fund.donationAmountIDR)}
 				</Typography>
 				<Typography sx={styles.ethAmount}>({fund.donationAmountETH} ETH)</Typography>
 				<Typography variant="h6" color="textSecondary" component="p">
-					Total Donations: {fund.donationsCount}
+					Total Donasi : {fund.donationsCount}
 				</Typography>
 			</CardContent>
 			<CardActions sx={styles.viewMoreBtn}>
@@ -104,7 +104,7 @@ const FundraiserCard = props => {
 					}}
 				>
 					<Button variant="contained" color="primary" size="small">
-						View Details
+						Lihat Detail
 					</Button>
 				</Link>
 			</CardActions>
