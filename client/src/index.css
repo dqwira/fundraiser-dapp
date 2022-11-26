@@ -1,0 +1,42 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: inherit;
+  margin-right: 15px;
+}
+
+.nav-link:hover,
+.nav-link:active,
+.nav-link:visited {
+  text-decoration: none;
+  color: #000;
+}
+
+.main-container {
+  margin: 30px 0;
+  min-height: calc(100vh - 160px); /* offset header + footer heights*/
+}
+
+.donation-receipt-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.back-button {
+  text-decoration: none;
+  color: inherit;
+  margin-bottom: 20px;
+}
