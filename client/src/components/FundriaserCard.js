@@ -37,7 +37,7 @@ const FundraiserCard = props => {
 		url: null,
 		donationsCount: null,
 		donationAmountETH: null,
-		donationAmountUSD: null,
+		donationAmountIDR: null,
 	})
 
 	const init = async () => {
@@ -54,9 +54,9 @@ const FundraiserCard = props => {
 			const donationAmount = await instance.methods.totalDonations().call()
 			const donationAmountETH = await web3.utils.fromWei(donationAmount, 'ether')
 			// Get exchange rate from API
-			const xRate = await CryptoCompare.price('ETH', ['USD'])
+			const xRate = await CryptoCompare.price('ETH', ['IDR'])
 			setExchangeRate(xRate)
-			const donationAmountUSD = xRate.USD * donationAmountETH
+			const donationAmountIDR = xRate.IDR * donationAmountETH
 			setFund({
 				name,
 				description,
@@ -64,7 +64,7 @@ const FundraiserCard = props => {
 				url,
 				donationsCount,
 				donationAmountETH,
-				donationAmountUSD,
+				donationAmountIDR,
 			})
 		} catch (err) {
 			console.error(err)
@@ -85,7 +85,7 @@ const FundraiserCard = props => {
 					{fund.name}
 				</Typography>
 				<Typography variant="h5" color="textSecondary" component="p">
-					Amount Raised: ${formatNumber(fund.donationAmountUSD)}
+					Amount Raised: Rp. {formatNumber(fund.donationAmountIDR)}
 				</Typography>
 				<Typography sx={styles.ethAmount}>({fund.donationAmountETH} ETH)</Typography>
 				<Typography variant="h6" color="textSecondary" component="p">
