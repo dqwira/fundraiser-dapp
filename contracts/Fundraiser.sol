@@ -1,18 +1,24 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.4.21 <0.9.0;
 
+//library untuk mengatur access control pada smart contract
 import "@openzeppelin/contracts/access/Ownable.sol";
+//library untuk mengatur operasi aritmatic antara overflow/undoverflow
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 
 contract Fundraiser is Ownable {
+    //implementasi safemath pada tipe data uint256
     using SafeMath for uint256;
 
+    //membuat struct Donation menampung value dan date
     struct Donation {
         uint256 value;
         uint256 date;
     }
+    //mengambil dan menyimpan data Donation
     mapping(address => Donation[]) private _donations;
 
+    //
     event DonationReceived(address indexed donor, uint256 value);
     event Withdraw(uint256 amount);
     event DetailsUpdated(
