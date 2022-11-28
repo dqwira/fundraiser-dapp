@@ -115,7 +115,7 @@ const FundraisersDetails = () => {
 				setLoading(false)
 			}
 		} catch (err) {
-			setError('Failed to get fundraiser details.')
+			setError('Gagal memuat detail penggalangan dana.')
 			console.error(err)
 			setLoading(false)
 		}
@@ -360,7 +360,7 @@ const FundraisersDetails = () => {
 							sx={styles.media}
 							component="img"
 							image={details.imageURL}
-							title="Fundraiser Image"
+							title="Gambar Penggalangan Dana"
 						/>
 						<Typography sx={styles.verticalSpacing}>{details.description}</Typography>
 						<Typography sx={styles.verticalSpacing}>
@@ -400,22 +400,22 @@ const FundraisersDetails = () => {
 					<Grid item xs={12} md={5}>
 						<Box sx={styles.verticalSpacing}>
 							<Typography gutterBottom variant="h6">
-							 Histori Donasi
+							 Riwayat Donasi
 							</Typography>
 							{displayMyDonations()}
 						</Box>
 						{isOwner && (
 							<>
 								<Typography gutterBottom variant="h5">
-									Sesi Admin
+									Sesi Penggalang Dana
 								</Typography>
 								<Typography gutterBottom>
-									Sebagai Admin atau Pembuat penggalangan dana, terdapat beberapa aksi yang tersedia
+									Sebagai Penggalang Dana, terdapat beberapa aksi yang tersedia
 								</Typography>
 								<Box sx={styles.verticalSpacing}>
-									<Typography variant="h6">Update Details</Typography>
+									<Typography variant="h6">Edit Rincian</Typography>
 									<Typography gutterBottom>
-										Edit detail penggalangan dana (nama, deskripsi, situs, dan gambar)
+										Penggalang dana dapat mengedit Rincian penggalangan dana termasuk nama, deskripsi, situs, dan gambar.
 									</Typography>
 									{!isEditingDetails ? (
 										<Button
@@ -434,57 +434,57 @@ const FundraisersDetails = () => {
 												onClick={handleEditDetails}
 												sx={styles.updateDetailsBtn}
 											>
-												Update
+												Perbarui
 											</Button>
 											<Button
 												variant="outlined"
 												color="secondary"
 												onClick={handleCancelEditDetails}
 											>
-												Cancel
+												Batal
 											</Button>
 											<TextField
 												id="fundraiser-name-input"
-												label="Name"
+												label="Nama Penggalangan Dana"
 												variant="filled"
 												margin="normal"
 												value={editedDetails.name}
 												onChange={e => setEditedDetails({ ...editedDetails, name: e.target.value })}
-												placeholder="Fundraiser Name"
+												placeholder="Nama Penggalangan Dana"
 												fullWidth
 											/>
 											<TextField
 												id="fundraiser-description-input"
-												label="Description"
+												label="Deskripsi"
 												variant="filled"
 												margin="normal"
 												value={editedDetails.description}
 												onChange={e =>
 													setEditedDetails({ ...editedDetails, description: e.target.value })
 												}
-												placeholder="Fundraiser Description"
+												placeholder="Deskripsi Penggalangan Dana"
 												fullWidth
 											/>
 											<TextField
 												id="fundraiser-website-input"
-												label="Website URL"
+												label="Situs URL"
 												variant="filled"
 												margin="normal"
 												value={editedDetails.url}
 												onChange={e => setEditedDetails({ ...editedDetails, url: e.target.value })}
-												placeholder="Fundraiser Website URL"
+												placeholder="Situs Penggalangan Dana"
 												fullWidth
 											/>
 											<TextField
 												id="fundraiser-image-input"
-												label="Image URL"
+												label="Gambar URL"
 												variant="filled"
 												margin="normal"
 												value={editedDetails.imageURL}
 												onChange={e =>
 													setEditedDetails({ ...editedDetails, imageURL: e.target.value })
 												}
-												placeholder="Fundraiser Image"
+												placeholder="Gambar Penggalangan Dana"
 												fullWidth
 											/>
 										</>
@@ -493,10 +493,10 @@ const FundraisersDetails = () => {
 								<Box sx={styles.verticalSpacing}>
 									<Typography variant="h6">Penerima dana</Typography>
 									<Typography>
-										Ubah penerima dana, penerima dana akan terdaftar sebagai alamat tujuan penarikan dana.
+										Atur alamat ETH penerima dana sebagai alamat tujuan penarikan dana.
 									</Typography>
 									<FormControl variant="filled" fullWidth margin="normal">
-										<InputLabel htmlFor="set-beneficiary-input">ETH Address penerima dana</InputLabel>
+										<InputLabel htmlFor="set-beneficiary-input">Alamat ETH penerima dana</InputLabel>
 										<FilledInput
 											id="set-beneficiary-input"
 											value={beneficiary}
@@ -511,7 +511,7 @@ const FundraisersDetails = () => {
 										onClick={handleSetBeneficiary}
 										sx={styles.ownerActionBtn}
 									>
-										Set Penerima Dana
+										Perbarui Penerima Dana
 									</Button>
 								</Box>
 								<Box sx={styles.verticalSpacing}>
@@ -519,7 +519,7 @@ const FundraisersDetails = () => {
 										Penarikan Dana
 									</Typography>
 									<Typography gutterBottom>
-										Total penggalangan dana akan ditransfer ke wallet penerima dana.
+										Total penggalangan dana akan ditransfer ke akun/alamat ETH penerima dana.
 									</Typography>
 									<Button
 										variant="contained"

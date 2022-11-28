@@ -104,7 +104,7 @@ const FundraiserCard = props => {
 					}}
 				>
 					<Button variant="contained" color="primary" size="small">
-						Lihat Detail
+						Lihat Rincian
 					</Button>
 				</Link>
 			</CardActions>

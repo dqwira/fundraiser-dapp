@@ -56,7 +56,7 @@ const NewFundraiser = () => {
 					Buat penggalangan dana baru
 				</Typography>
 				<Typography gutterBottom>
-					Sebagai pembuat penggalangan dana, anda dapat mengelola dana dan detail penggalangan dana serta memilih alamat ETH penerima dana termasuk melakukan penarikan dana ke alamat ETH yang dipilih. 
+					Sebagai penggalang dana, anda dapat mengelola rincian penggalangan dana serta memilih alamat ETH penerima dana termasuk melakukan penarikan dana ke alamat ETH yang dipilih. 
 				</Typography>
 			</Box>
 			<form>
@@ -67,7 +67,7 @@ const NewFundraiser = () => {
 					margin="normal"
 					value={name}
 					onChange={e => setFundraiserName(e.target.value)}
-					placeholder="Fundraiser Name"
+					placeholder="Nama Penggalangan Dana"
 					fullWidth
 				/>
 				<TextField
@@ -77,7 +77,7 @@ const NewFundraiser = () => {
 					margin="normal"
 					value={description}
 					onChange={e => setFundraiserDescription(e.target.value)}
-					placeholder="Fundraiser Description"
+					placeholder="Deskripsi Penggalangan Dana"
 					fullWidth
 				/>
 				<TextField
@@ -87,7 +87,7 @@ const NewFundraiser = () => {
 					margin="normal"
 					value={website}
 					onChange={e => setFundraiserWebsite(e.target.value)}
-					placeholder="Fundraiser Website URL"
+					placeholder="www.situspenggalangandana.com"
 					fullWidth
 				/>
 				<TextField
@@ -97,7 +97,7 @@ const NewFundraiser = () => {
 					margin="normal"
 					value={image}
 					onChange={e => setFundraiserImage(e.target.value)}
-					placeholder="Fundraiser Image"
+					placeholder="https://example.pengalangandana/gambar.png"
 					fullWidth
 				/>
 				<TextField

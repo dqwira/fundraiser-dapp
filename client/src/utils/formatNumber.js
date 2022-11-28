@@ -5,7 +5,7 @@
  */
 const formatNumber = num => {
 	if (!num) return ''
-	const formatted = num.toLocaleString('en-US', {
+	const formatted = num.toLocaleString('id-ID', {
 		minimumFractionDigits: 2,
 		maximumFractionDigits: 2,
 	})

@@ -50,7 +50,7 @@ const Explore = () => {
 		} catch (err) {
 			console.error(err.message)
 			setLoading(false)
-			setErrorMsg('An error occurred while fetching fundraisers.')
+			setErrorMsg('Terjadi kesalahan saat memuat daftar penggalangan dana')
 		}
 	}
 
