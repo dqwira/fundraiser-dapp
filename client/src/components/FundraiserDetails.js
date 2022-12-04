@@ -311,6 +311,19 @@ const FundraisersDetails = () => {
 						<Typography sx={styles.ethAmount}>({donationAmountEth} ETH)</Typography>
 					</Box>
 				</Box>
+				<Link
+						className="donation-receipt-link"
+						to="/receipts"
+						state={{
+							donation: donation.donationAmount,
+							date: donation.date,
+							fundName: details.name,
+						}}
+					>
+						<Button variant="outlined" color="primary" size="small">
+							Resi
+						</Button>
+					</Link>
 				<Divider light />
 			</Fragment>
 		))

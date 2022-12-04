@@ -4,6 +4,7 @@ import Explore from './Explore'
 import FundraisersDetails from './FundraiserDetails'
 import Home from './Home'
 import NewFundraiser from './NewFundraiser'
+import Receipts from './Receipts'
 
 const AppMain = () => (
 	<main className="main-container">
@@ -31,6 +32,14 @@ const AppMain = () => (
 				element={
 					<Container maxWidth="md">
 						<NewFundraiser />
+					</Container>
+				}
+			/>
+			<Route
+				path="receipts"
+				element={
+					<Container maxWidth="md">
+						<Receipts />
 					</Container>
 				}
 			/>

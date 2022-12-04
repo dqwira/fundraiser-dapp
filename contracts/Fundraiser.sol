@@ -1,20 +1,34 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.4.21 <0.9.0;
 
+/*
+openzeppelin merupakan library dalam soliidty.
+ownable.sol untuk mengatur akses terhadap smart contract (hanya 1 akun yg dapat akses ke smart contract)
+safemath.sol untuk mengatur luapan bilangan pada integer
+*/
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 
 contract Fundraiser is Ownable {
     using SafeMath for uint256;
 
+    // membuat struct untuk donasi
     struct Donation {
         uint256 value;
         uint256 date;
     }
+
+    // mengambil dan menyimpan data donasi
     mapping(address => Donation[]) private _donations;
 
+    //event akan dipush ke blockchain
+    //menerima donasi dari user
     event DonationReceived(address indexed donor, uint256 value);
+
+    //menarik dana  
     event Withdraw(uint256 amount);
+
+    //memodifikasi detail donasi
     event DetailsUpdated(
         string name,
         string description,
@@ -48,7 +62,7 @@ contract Fundraiser is Ownable {
         _transferOwnership(_custodian);
     }
 
-    // Default fallback function
+    // fault fallback functionDe
     fallback() external payable {
         // Increase donations (i.e. from anonymous donation)
         totalDonations = totalDonations.add(msg.value);

@@ -1,7 +1,7 @@
 /**
- * Formats a given integer into a US-based number. 1000000.55 -> 1,000,000.55
- * @param {number} num = The unformatted integer to format
- * @returns {string} A formatted US-based number with commas and two decimal places.
+ * Memformat bilangan bulat tertentu menjadi angka berbasis IDR
+ * @param {number} num menampung bilangan yang belum diformat untuk diformat
+ * @returns {string} men-format angka ke format IDR dan 2 angka setelah koma
  */
 const formatNumber = num => {
 	if (!num) return ''
