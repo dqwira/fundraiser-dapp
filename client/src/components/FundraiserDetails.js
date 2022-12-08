@@ -121,6 +121,7 @@ const FundraisersDetails = () => {
 		}
 	}, accounts)
 	/* eslint-enable react-hooks/exhaustive-deps */
+	
 
 	const init = async () => {
 		try {
@@ -143,6 +144,7 @@ const FundraisersDetails = () => {
 			const donationsCount = await fundContract.methods.donationsCount().call()
 			const donationAmountETH = await web3.utils.fromWei(donationAmount, 'ether')
 			const donationAmountIDR = xRate.IDR * donationAmountETH
+			// const accounts = await web3.eth.getAccounts()
 			setExchangeRate(xRate)
 			setDonationAmount(donationAmountIDR)
 			setDonationAmountEth(donationAmountETH)
@@ -303,6 +305,31 @@ const FundraisersDetails = () => {
 				</Box>
 			)
 
+		// return donationsList.map(donation => (
+		// 	<Fragment key={donation.date}>
+		// 		<Box sx={styles.donationRow}>
+		// 			<Box>
+		// 				<Typography>Rp. {donation.donationAmountIDR}</Typography>
+		// 				<Typography sx={styles.ethAmount}>({donationAmountEth} ETH)</Typography>
+		// 			</Box>
+		// 		</Box>
+		// 		<Link
+		// 				className="donation-receipt-link"
+		// 				to="/receipts"
+		// 				state={{
+		// 					donation: donation.donationAmountIDR,
+		// 					date: donation.date,
+		// 					fundName: details.name,
+		// 					acc: donation.userAcct,
+		// 				}}
+		// 			>
+		// 				<Button variant="outlined" color="primary" size="small">
+		// 					Resi
+		// 				</Button>
+		// 			</Link>
+		// 		<Divider light />
+		// 	</Fragment>
+		// ))
 		return donationsList.map(donation => (
 			<Fragment key={donation.date}>
 				<Box sx={styles.donationRow}>
@@ -310,20 +337,20 @@ const FundraisersDetails = () => {
 						<Typography>Rp. {donation.donationAmountIDR}</Typography>
 						<Typography sx={styles.ethAmount}>({donationAmountEth} ETH)</Typography>
 					</Box>
-				</Box>
-				<Link
+					<Link
 						className="donation-receipt-link"
 						to="/receipts"
 						state={{
-							donation: donation.donationAmount,
+							donation: donation.donationAmountIDR,
 							date: donation.date,
 							fundName: details.name,
 						}}
 					>
 						<Button variant="outlined" color="primary" size="small">
-							Resi
+							Lihat Resi
 						</Button>
 					</Link>
+				</Box>
 				<Divider light />
 			</Fragment>
 		))

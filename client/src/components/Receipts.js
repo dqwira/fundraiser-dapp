@@ -29,7 +29,7 @@ const Receipts = () => {
 	useEffect(() => {
 		if (location.state) {
 			const { donation, date, fundName } = location.state
-			const formattedDate = new Date(parseInt(date))
+			const formattedDate = new Date(parseInt(date * 1000))
 			setDonation(donation)
 			setDate(formattedDate.toLocaleDateString())
 			setFundName(fundName)
