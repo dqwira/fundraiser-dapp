@@ -1,6 +1,4 @@
-Project Akhir Matakuliah Blockchain
-
-Run project
+How to Run project
 
 root folder
 1. 'npm install'
